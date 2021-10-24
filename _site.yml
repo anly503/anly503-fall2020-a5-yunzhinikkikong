@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "Altair"
       href: altair.html
+    - text: "Plotly"
+      href: plotly.html
 output:
   html_document:
      theme: cosmo
