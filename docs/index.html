@@ -272,22 +272,31 @@ $(document).ready(function () {
 <div id="questions" class="section level4">
 <h4>Questions</h4>
 <ul>
-<li><p>What is the trend of daily average value of sum of real power over all power phases?</p></li>
-<li><p>Which household has significant lower/higher electricity consumption?</p></li>
+<li><p>What is the trend of daily average sum of real power over all power phases per second?</p></li>
+<li><p>Which household has significant lower/higher overall electricity consumption?</p></li>
 <li><p>Is there any specific date window that electricity consumption significantly increase or decrease?</p></li>
 </ul>
 </div>
 <div id="rationale" class="section level4">
 <h4>Rationale</h4>
+<p>The first visualization is built based on the variable <code>powerallphases</code> in the smart meter data. This variable is our primary interest which represent the sum of real power over all power phases consumed in the household. <code>powerallphases</code> is measured every second in a day. So there are 86400 measurements every day. In order to analyze the day in daily basis, in the data munging part, I aggregate the data and generate the average value of <code>powerallphases</code> per second for comparison and named it <code>avg_powerallphases</code>. Therefore, there will be one measurement per day, if we want to know about the total <code>powerallphases</code> in a day, we just need to multiply <code>avg_powerallphases</code> by 86400.</p>
+<p>This visualization is created using Altair, the main purpose is to compare the overall electricity consumption in each household using the <code>avg_powerallphases</code>. There are three line plot displayed in the same figure. Three lines each represents a household and highlighted with different color. The interactions and animations techniques used in this visualization includes panning, details-on-demand. The user can mouse over within the date range, then the figures will present an annotations that include information of the values from three households and the date. An alternative way is to make the selection of household as a drop-down event or selection button. In this way, the user can select certain household to display. However, by displaying all of three line plots and highlighted them using different colors, it will be much more straightforward for users to compare the electricity consumption of three households.</p>
 </div>
 </div>
 <div id="visualization-using-plotly" class="section level2">
 <h2>Visualization using Plotly</h2>
 <div id="questions-1" class="section level4">
 <h4>Questions</h4>
+<ul>
+<li><p>What is the ratio of daily electricity consumption on fridge and entertainment in each household?</p></li>
+<li><p>Can we make any assumption of each household’s lifestyle based on the ratio in question 1?</p></li>
+<li><p>Which household has significant lower/higher daily electricity consumption on fridge or entertainment?</p></li>
+</ul>
 </div>
 <div id="rationale-1" class="section level4">
 <h4>Rationale</h4>
+<p>The second visualization is build based on the subset of “plug” data of each household. In the original database, each household has various plug components for measurements. I picked the components that appear in all of three household for comparison. They are two of them: fridge and entertainment (TV and stereo). Same as the smart meter data, the measurements are token every second in a day. So I sum up the measurement into a new variable <code>PowerPerDay</code> to show the daily electricity consumption of fridge or entertainment.</p>
+<p>The visualization is created using Plotly, the main thought is to use area chart to show the trend, as well as the ratio of fridge and entertainment electricity consumption. The interactions and animations techniques used in this visualization includes panning, details-on-demand and selecting different measures to display. The drop-down tab in the left side is designed for user to select different household. After selecting, the figure will present the area charts of fridge and entertainment electricity consumption highlighted with different colors. What’s more, by mousing over within the date range, the user can select certain day and the annotation will show information of the date, plug category(fridge/entertainment), and the consumption amount. Alternative way is to use density plot or bar graph, and adding another tooltip that allow to present one or both of the two plug categories at one time. However, by using the area chart, it is better to show the ratio of the consumption of two plug categories. It is more clear to see how many area are overlapped, and determine whether a household has more electricity on entertainment or fridge. The assumption of lifestyles of each household can be make from the visualization, for example, household 6 has very less electricity consumption on fridge comparing with other household, we can predict that this family do not cook and eat at home every often.</p>
 </div>
 </div>
 
