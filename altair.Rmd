@@ -3,5 +3,5 @@
 ---
 
 ```{r, echo=FALSE}
-htmltools::includeHTML("/Users/nikkkikong/Desktop/altair.html")
+htmltools::includeHTML("altair.html")
 ```
