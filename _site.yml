@@ -1,0 +1,13 @@
+name: "ANLY 503 A5 Website"
+output_dir: "docs"
+navbar:
+  title: "Yunzhi Kong's Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Altair"
+      href: altair.html
+output:
+  html_document:
+     theme: cosmo
+     highlight: textmate
