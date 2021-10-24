@@ -6,7 +6,12 @@ title: "ANLY 503 A5 Website"
 
 
 #### Questions
-hoedhh
+
+* What is the trend of daily average value of sum of real power over all power phases?
+
+* Which household has significant lower/higher electricity consumption?
+
+* Is there any specific date window that electricity consumption significantly increase or decrease?
 
 #### Rationale 
 
